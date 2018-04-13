@@ -1,0 +1,12 @@
+{
+  "name": "@hedron/roll-hedron",
+  "version": "0.0.1",
+  "description": "roll module for hedron",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape -r ./tests/test_setup.js tests/**/*.js"
+  },
+  "dependencies": {
+    "tape": "^4.8.0"
+  }
+}
