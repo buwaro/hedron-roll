@@ -1,5 +1,5 @@
 {
-  "name": "@hedron/roll-hedron",
+  "name": "hedron-roll",
   "version": "0.0.1",
   "description": "roll module for hedron",
   "main": "index.js",
@@ -8,5 +8,11 @@
   },
   "dependencies": {
     "tape": "^4.8.0"
+  },
+  "author": "Furexa (buwaro)",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/buwaro/hedron-roll.git"
   }
 }
