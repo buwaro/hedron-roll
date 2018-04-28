@@ -6,7 +6,7 @@
   or
   Install them by executing `npm install` inside the hedron-bot folder
 
-##Usage:
+## Usage:
 - **Roll a 6 sided dice:** `/roll`
 - **Roll a 10 sided dice:**`/roll 1d10`
 - **Roll a 20 sided dice and 2 4 sided dices:**`/roll 1d20 2d4`
