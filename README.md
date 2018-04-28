@@ -8,6 +8,6 @@
 
 ##Usage:
 - **Roll a 6 sided dice:** `/roll`
-- **Roll a 10 sided dice:**`/roll 1d10`generate a number between
-- **Roll a 20 sided dice and 2 4 sided dices:**`/roll 1d20 2d4`generate a number between
+- **Roll a 10 sided dice:**`/roll 1d10`
+- **Roll a 20 sided dice and 2 4 sided dices:**`/roll 1d20 2d4`
 
