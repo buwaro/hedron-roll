@@ -1,6 +1,6 @@
 {
   "name": "hedron-roll",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "roll module for hedron",
   "main": "index.js",
   "scripts": {
