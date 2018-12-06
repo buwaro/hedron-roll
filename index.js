@@ -19,7 +19,7 @@ module.exports = (bot) => {
       else {
         var diceCollection = new DiceCollection()
         diceCollection.addDices(params)
-        var result = diceCollection.rollDices().join(", ")
+        var result = diceCollection.result();
       }
 
       if (!secret.triggered) {

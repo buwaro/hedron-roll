@@ -8,6 +8,7 @@ class DiceCollection {
         this.dices = []
         this.maxDice = 100
         this.maxSides = 100
+        this.sum = 0;
     }
 
     addDices(diceStrings) {
@@ -66,17 +67,17 @@ class DiceCollection {
     }
 
     rollDices() {
-        var result = []
+      var result = []
+      for(var [dice, amount] of this.dices) {
 
-        for(var [dice, amount] of this.dices) {
-
-            var i;
-            for (i = 0; i < amount; i++) {
-                result.push(dice.roll())
-            }
+        var i;
+        for (i = 0; i < amount; i++) {
+          var diceResult = dice.roll();
+          this.sum += diceResult;
+          result.push(diceResult);
         }
-
-        return result
+      }
+      return result
     }
 
     totalAmount() {
@@ -87,6 +88,15 @@ class DiceCollection {
 
         return result
     }
+
+    result(){
+      var result = this.rollDices().join(", ");
+      if(this.totalAmount() > 1) {
+        result += `\n\nTotal:${this.sum}`;
+      }
+      return result;
+    }
+
 }
 
 module.exports = DiceCollection;
