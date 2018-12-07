@@ -18,7 +18,7 @@ module.exports = (bot) => {
       }
       else {
         var diceCollection = new DiceCollection()
-        diceCollection.addDices(params)
+        diceCollection.parseParams(params);
         var result = diceCollection.result();
       }
 
