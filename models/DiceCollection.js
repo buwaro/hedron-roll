@@ -9,6 +9,7 @@ class DiceCollection {
     this.dices = [];
     this.maxDice = 1000;
     this.maxSides = 100;
+    this.results = [];
     this.sum = 0;
     this.targetNumbers = [];
   }
@@ -31,8 +32,8 @@ class DiceCollection {
   }
 
   addTargetNumber(targetNumberString) {
-    var [targetNumber] = targetNumberRegex.exec(diceString).slice(1,2)
-    this.targetNumbers.push(targetNumber)
+    var [targetNumber] = targetNumberRegex.exec(targetNumberString).slice(1,2);
+    this.targetNumbers.push(targetNumber);
   }
 
   addDiceFromString(param) {
@@ -76,36 +77,57 @@ class DiceCollection {
     }
   }
 
-    rollDices() {
-      var result = []
-      for(var [dice, amount] of this.dices) {
+  rollDices() {
+    var result = []
+    for(var [dice, amount] of this.dices) {
 
-        var i;
-        for (i = 0; i < amount; i++) {
-          var diceResult = dice.roll();
-          this.sum += diceResult;
-          result.push(diceResult);
-        }
+      var i;
+      for (i = 0; i < amount; i++) {
+        var diceResult = dice.roll();
+        this.sum += diceResult;
+        this.results.push(diceResult);
+        result.push(diceResult);
       }
-      return result
+    }
+    return result;
+  }
+
+  totalAmount() {
+    var result = 0;
+    for(var [dice, amount] of this.dices) {
+      result += parseInt(amount);
     }
 
-    totalAmount() {
-        var result = 0
-        for(var [dice, amount] of this.dices) {
-            result += parseInt(amount)
-        }
+    return result;
+  }
 
-        return result
-    }
-
-    result(){
-      var result = this.rollDices().join(", ");
-      if(this.totalAmount() > 1) {
-        result += `\n\nTotal:${this.sum}`;
+  above(target) {
+    var result = 0;
+    for (var number of this.results) {
+      if (number >= target) {
+        result ++;
       }
-      return result;
     }
+    return result;
+  }
+
+  result(){
+    var result = this.rollDices().join(", ");
+    if(this.totalAmount() > 1) {
+      result += `\n\nTotal:${this.sum}`;
+    }
+
+    for (var targetNumber of this.targetNumbers) {
+      var above = this.above(targetNumber);
+      if (above == 1) {
+        result += `only 1 die is above target ${above}`;
+      } else {
+        result += `\n${above} dice are above target ${targetNumber}`;
+      }
+    }
+
+    return result;
+  }
 
   _isTargetNumber(param) { return targetNumberRegex.test(param) }
 

@@ -144,3 +144,10 @@ test("Throws an error when there are special characters", function (t) {
         t.is(e, "U wot m8?!")
     }
 })
+
+test("above target", function (t) {
+  t.plan(1);
+  const d = new DiceCollection();
+  d.results = [2, 5];
+  t.is(1, d.above(3));
+})
